@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "pico-gpt"
+version = "1.0.0"
+description = ""
+authors = ["Sebastien McRae <63312003+sebastien-mcrae@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "pico_gpt"}]
+
+[tool.poetry.scripts]
+demo = "scripts:demo"
+
+[tool.poetry.dependencies]
+python = "^3.11.0,<3.12"
+regex = "^2023.6.3"
+requests = "^2.31.0"
+tqdm = "^4.65.0"
+fire = "^0.5.0"
+tensorflow = "^2.13.0rc1"
+numpy = "^1.25.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.1"
+types-tqdm = "^4.65.0.1"
+types-requests = "^2.31.0.1"
+types-regex = "^2023.6.3.0"
+ruff = "^0.0.275"
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select = ["E", "F", "I"]
+
+[[tool.mypy.overrides]]
+module = ["tensorflow", "fire"]
+ignore_missing_imports = true
